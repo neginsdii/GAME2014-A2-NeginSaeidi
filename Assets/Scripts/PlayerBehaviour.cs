@@ -11,6 +11,8 @@ public class PlayerBehaviour : MonoBehaviour
     public Transform groundOrigin;
     public float groundRadius;
     public LayerMask groundLayerMask;
+    [Range(0.1f, 0.9f)]
+    public float airControlFactor;
 
     private Rigidbody2D rigidbody;
 
@@ -29,12 +31,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Move()
     {
+            float x = Input.GetAxisRaw("Horizontal");
         if (isGrounded)
         {
             //float deltaTime = Time.deltaTime;
 
             // Keyboard Input
-            float x = Input.GetAxisRaw("Horizontal");
             float y = Input.GetAxisRaw("Vertical");
             float jump = Input.GetAxisRaw("Jump");
 
@@ -53,6 +55,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
 
             float horizontalMoveForce = x * horizontalForce;// * deltaTime;
+
             float jumpMoveForce = jump * verticalForce; // * deltaTime;
 
             float mass = rigidbody.mass * rigidbody.gravityScale;
@@ -60,6 +63,18 @@ public class PlayerBehaviour : MonoBehaviour
 
             rigidbody.AddForce(new Vector2(horizontalMoveForce, jumpMoveForce) * mass);
             rigidbody.velocity *= 0.99f; // scaling / stopping hack
+        }
+        else
+		{
+            if (x != 0)
+            {
+                x = FlipAnimation(x);
+
+                float horizontalMoveForce = x * horizontalForce * airControlFactor;
+                float mass = rigidbody.mass * rigidbody.gravityScale;
+
+                rigidbody.AddForce(new Vector2(horizontalMoveForce, 0.0f) * mass);
+            }
         }
 
     }
@@ -93,4 +108,19 @@ public class PlayerBehaviour : MonoBehaviour
         Gizmos.DrawWireSphere(groundOrigin.position, groundRadius);
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            transform.SetParent(other.transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            transform.SetParent(null);
+        }
+    }
 }
