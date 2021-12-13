@@ -7,6 +7,8 @@ public class FallingPlatformController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rigidbody;
 	private Vector3 startPosition;
+	[SerializeField]
+	private GameObject fallingPlatformRef;
 	private void Start()
 	{
 		rigidbody = GetComponent<Rigidbody2D>();
@@ -25,14 +27,12 @@ public class FallingPlatformController : MonoBehaviour
 	void DropPlatform()
 	{
 		rigidbody.isKinematic = false;
-
+		Invoke("DestoryPlatform", 4.5f);
 
 	}
 
-	void RespawnPlatform()
+	void DestoryPlatform()
 	{
-		rigidbody.isKinematic = true;
-
-		transform.position = startPosition;
-	}
+		Destroy(this.gameObject);
+	}	
 }
