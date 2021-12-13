@@ -43,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             // Keyboard Input
             float y = (Input.GetAxisRaw("Vertical") + joystick.Vertical) * sensitivity;
-            float jump = Input.GetAxisRaw("Jump");
+            float jump = Input.GetAxisRaw("Jump") + ((UIController.jumpButtonDown) ? 1.0f : 0.0f);
 
             // Check for Flip
 
