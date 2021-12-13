@@ -409,6 +409,36 @@ MonoBehaviour:
   distance: 5
   distanceOffset: 0.05
   isLooping: 1
+--- !u!1 &158288436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 158288437}
+  m_Layer: 0
+  m_Name: SpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &158288437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158288436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.782, y: -4.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 571243853}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160415985
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +715,7 @@ GameObject:
   - component: {fileID: 218780259}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -835,7 +865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218780258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.514, y: 2.18, z: 0}
+  m_LocalPosition: {x: -5.7, y: 3.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1876538823}
@@ -2015,6 +2045,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6107232851258165416, guid: ebe11cfc977e2e743bcd8aae3225bf31, type: 3}
   m_PrefabInstance: {fileID: 744602509}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &571243853 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6107232851258165422, guid: ebe11cfc977e2e743bcd8aae3225bf31, type: 3}
+  m_PrefabInstance: {fileID: 744602509}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &571243854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,9 +2569,10 @@ MonoBehaviour:
   airControlFactor: 0.231
   scoreText: {fileID: 1443185884}
   lifeImages:
-  - {fileID: 1265968384}
-  - {fileID: 1743210036}
-  - {fileID: 739896611}
+  - {fileID: 1265968382}
+  - {fileID: 1743210034}
+  - {fileID: 739896609}
+  spawnposition: {fileID: 158288437}
 --- !u!50 &857852482
 Rigidbody2D:
   serializedVersion: 4
@@ -2702,7 +2738,7 @@ GameObject:
   - component: {fileID: 898168935}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7693,7 +7729,7 @@ GameObject:
   - component: {fileID: 1695698284}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8062,7 +8098,7 @@ GameObject:
   - component: {fileID: 1769436557}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9108,7 +9144,7 @@ GameObject:
   - component: {fileID: 2112331628}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9208,7 +9244,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

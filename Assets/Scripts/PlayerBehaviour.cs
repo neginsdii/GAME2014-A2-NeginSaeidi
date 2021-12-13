@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class PlayerBehaviour : MonoBehaviour
 {
     [Header("Touch Input")]
@@ -22,9 +23,10 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D rigidbody;
     [Header("HUD Settings")]
     [SerializeField] private Text scoreText;
-    [SerializeField] public List<Image> lifeImages;
+    [SerializeField] public List<GameObject> lifeImages;
     private int numberOfNeros = 0;
     private int score = 0;
+    [SerializeField] private Transform spawnposition;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,20 @@ public class PlayerBehaviour : MonoBehaviour
         Move();
         CheckIfGrounded();
         scoreText.text = "Score: " + score;
+        if(lifeImages.Count<=0)
+		{
+            PlayerPrefs.SetInt("Score", score);
+            PlayerPrefs.SetInt("Neros", numberOfNeros);
+
+            SceneManager.LoadScene("GameOver");
+
+        }
+    }
+    IEnumerator respawn()
+	{
+        yield return new WaitForSeconds(0.1f);
+        transform.position = spawnposition.position;
+       
     }
 
     private void Move()
@@ -124,6 +140,13 @@ public class PlayerBehaviour : MonoBehaviour
         {
             transform.SetParent(other.transform);
         }
+       else if(other.gameObject.tag == "Enemy")
+        {
+            Debug.Log(lifeImages.Count);
+            lifeImages[lifeImages.Count - 1].SetActive(false);
+            lifeImages.RemoveAt(lifeImages.Count - 1);
+            StartCoroutine(respawn());
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other)
@@ -142,5 +165,16 @@ public class PlayerBehaviour : MonoBehaviour
             numberOfNeros++;
             score += 10;
 		}
-	}
+        else if (collision.gameObject.tag == "Door")
+        {
+            if(numberOfNeros>=7)
+			{
+                PlayerPrefs.SetInt("Score", score);
+                PlayerPrefs.SetInt("Neros", numberOfNeros);
+
+                SceneManager.LoadScene("GameOver");
+
+            }
+        }
+    }
 }
