@@ -20,7 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float airControlFactor;
 
     private Rigidbody2D rigidbody;
-
+    private int numberOfNeros = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -128,4 +128,13 @@ public class PlayerBehaviour : MonoBehaviour
             transform.SetParent(null);
         }
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if(collision.gameObject.tag == "Nero")
+		{
+            Destroy(collision.gameObject);
+            numberOfNeros++;
+		}
+	}
 }

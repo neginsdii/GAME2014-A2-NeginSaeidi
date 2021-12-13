@@ -9,7 +9,6 @@ public class EnemyController : MonoBehaviour
     public Transform lookAheadPoint;
     public Transform lookInFrontPoint;
     public LayerMask groundLayerMask;
-    public LayerMask wallLayerMask;
     public bool isGroundAhead;
 
     private Rigidbody2D rigidbody;
@@ -24,7 +23,6 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         LookAhead();
-      //  LookInFront();
         MoveEnemy();
     }
 
@@ -34,15 +32,7 @@ public class EnemyController : MonoBehaviour
         isGroundAhead = (hit) ? true : false;
     }
 
-    //private void LookInFront()
-    //{
-    //    var hit = Physics2D.Linecast(transform.position, lookInFrontPoint.position, wallLayerMask);
-    //    if (hit)
-    //    {
-    //        Flip();
-    //    }
-    //}
-
+    
     private void MoveEnemy()
     {
         if (isGroundAhead)
