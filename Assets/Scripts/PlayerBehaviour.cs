@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerBehaviour : MonoBehaviour
 {
     [Header("Touch Input")]
@@ -20,7 +20,11 @@ public class PlayerBehaviour : MonoBehaviour
     public float airControlFactor;
 
     private Rigidbody2D rigidbody;
+    [Header("HUD Settings")]
+    [SerializeField] private Text scoreText;
+    [SerializeField] public List<Image> lifeImages;
     private int numberOfNeros = 0;
+    private int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Move();
         CheckIfGrounded();
+        scoreText.text = "Score: " + score;
     }
 
     private void Move()
@@ -135,6 +140,7 @@ public class PlayerBehaviour : MonoBehaviour
 		{
             Destroy(collision.gameObject);
             numberOfNeros++;
+            score += 10;
 		}
 	}
 }
