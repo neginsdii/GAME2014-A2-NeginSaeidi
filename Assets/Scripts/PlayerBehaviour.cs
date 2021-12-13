@@ -1,3 +1,12 @@
+/*
+ * Full Name        : Negin Saeidi
+ * Student ID       : 101261395
+ * Date Modified    : December 12, 2021
+ * File             : PlayerBehaviour.cs
+ * Description      : This is the PlayerBehaviour script - Controls the movement for the player, Collision between player and other objects
+ * Version          : V04
+ * Revision History : Added load game over scene
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

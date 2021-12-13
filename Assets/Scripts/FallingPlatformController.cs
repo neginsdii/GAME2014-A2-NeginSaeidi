@@ -1,3 +1,12 @@
+/*
+ * Full Name        : Negin Saeidi
+ * Student ID       : 101261395
+ * Date Modified    : December 12, 2021
+ * File             : FallingPlatformController.cs
+ * Description      : This is the FallingPlatformController script - Controls the platform rigid body type
+ * Version          : V01
+ * Revision History : Added functions
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

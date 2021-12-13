@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.GBC.GAME2014A2NeginSaeidi",
-        "processId": 2963,
+        "processId": 3450,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -18,6 +18,12 @@
             "deviceId": "emulator-5554",
             "name": "com.GBC.GAME2014A2NeginSaeidi",
             "processId": 2963,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.GBC.GAME2014A2NeginSaeidi",
+            "processId": 3450,
             "exited": false
         }
     ],

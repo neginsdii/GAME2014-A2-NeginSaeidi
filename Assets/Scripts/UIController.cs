@@ -1,3 +1,12 @@
+/*
+ * Full Name        : Negin Saeidi
+ * Student ID       : 101261395
+ * Date Modified    : December 12, 2021
+ * File             : UIController.cs
+ * Description      : This is the UIController script - Has the events for JumpButtonDown and JumpButtonUp
+ * Version          : V01
+ * Revision History : Added jump button events
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

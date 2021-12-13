@@ -1,3 +1,12 @@
+/*
+ * Full Name        : Negin Saeidi
+ * Student ID       : 101261395
+ * Date Modified    : December 12, 2021
+ * File             : FallingPlatformsManager.cs
+ * Description      : This is the FallingPlatformsManager script - Is used to respawn the platforms that has fallen
+ * Version          : V01
+ * Revision History : Added functions
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
